@@ -147,7 +147,7 @@ func scanDenylist(root, denylistPath string, terms []string) []Finding {
 		}
 		if entry.IsDir() {
 			switch entry.Name() {
-			case ".git", "bin", "dist":
+			case ".codex-tools", ".git", "bin", "dist":
 				return filepath.SkipDir
 			}
 			return nil

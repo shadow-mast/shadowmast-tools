@@ -16,6 +16,26 @@ All commands support:
 - human-readable output by default
 - CI-oriented exit codes: `0` pass, `1` check failure, `2` usage or command error
 
+## For Codex Automation
+
+These tools are built for Codex self-checks inside GitHub delivery work. The user is not expected to run them by hand during normal tasks.
+
+Before a final handoff, Codex should run the local delivery gate itself:
+
+PowerShell:
+
+```powershell
+.\scripts\codex-delivery-gate.ps1
+```
+
+POSIX shells:
+
+```sh
+./scripts/codex-delivery-gate.sh
+```
+
+The gate builds missing local tool binaries, runs `repo-audit` and `codex-status`, and prints a markdown handoff. Codex should add optional artifact or release checks only when the task actually produced artifacts or touched a release.
+
 ## Build And Test
 
 PowerShell:
