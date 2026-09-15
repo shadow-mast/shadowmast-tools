@@ -35,7 +35,8 @@ The CLI tools in this repository are primarily for Codex self-check automation, 
 - Use only GitHub, `git`, `gh`, and local repository tooling by default.
 - Do not add assumptions about non-GitHub trackers, private hosts, office chat, or deployment systems.
 - Never commit secrets, tokens, private keys, credentials, copied chat logs, or large generated binaries.
-- Do not delete, move, overwrite, or destructively rename user files without explicit approval.
+- Preserve unrelated user files and changes. Project edits within the task use
+  standing authorization; destructive changes to user data need a specific decision.
 - For file operations, prefer read-only checks, dry-run behavior, manifests, logs, and undo strategy.
 
 ## Go Rules
@@ -47,7 +48,7 @@ The CLI tools in this repository are primarily for Codex self-check automation, 
 
 ## Codex Self-Check Gate
 
-- Use `scripts/codex-delivery-gate.ps1` on Windows and `scripts/codex-delivery-gate.sh` on Linux/macOS for final local handoffs.
+- Use `scripts/codex-delivery-gate.ps1` on Windows and `scripts/codex-delivery-gate.sh` on Linux/macOS for implementation/release handoffs. Documentation-only edits need diff/link checks; do not rebuild tools solely for Markdown.
 - The gate always runs `repo-audit` and `codex-status`.
 - Add `artifact-verify` to the gate only when the task produced local build artifacts.
 - Add `release-checker` to the gate only when the task touches a GitHub release or release artifacts.
