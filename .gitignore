@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+bin/
+dist/
+.codex-tools/
+*.exe
+*.test
+coverage.out
